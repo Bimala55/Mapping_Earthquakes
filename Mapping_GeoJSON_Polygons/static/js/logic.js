@@ -44,6 +44,15 @@ let torontoHoods = "https://raw.githubusercontent.com/Bimala55/Mapping_Earthquak
 d3.json(torontoHoods).then(function (data) {
     console.log(data);
     // Creating a GeoJSON layer with the retrieved data.
-    L.geoJson(data)
-.addTo(map);
+    L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<h2>Neighborhood:" + feature.properties.AREA_NAME + "</h3>");
+        },
+        fillColor: 'yellow',
+        fillOpacity: 0.2,
+        color: "blue",
+        weight: 1
+    })
+
+        .addTo(map);
 });
