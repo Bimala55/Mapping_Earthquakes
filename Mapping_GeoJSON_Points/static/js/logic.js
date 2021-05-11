@@ -47,10 +47,10 @@ streets.addTo(map);
 d3.json(airportData).then(function (data) {
   console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
-  L.geoJson(data)
-  //  onEachFeature: function(feature, layer) {
-    //  layer.bindPopup("<h2>Airport code:" + feature.properties.icao + "</h2><hr><h3>Airport name:" + feature.properties.name + "</h3>");
-    //}
-  //})
+  L.geoJson(data, {
+  onEachFeature: function(feature, layer) {
+      layer.bindPopup("<h2>Airport code:" + feature.properties.icao + "</h2><hr><h3>Airport name:" + feature.properties.name + "</h3>");
+    }
+  })
     .addTo(map);
 });
