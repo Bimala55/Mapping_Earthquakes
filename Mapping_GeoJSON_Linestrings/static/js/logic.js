@@ -48,7 +48,7 @@ d3.json(torontoData).then(function (data) {
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<h2>Airline:" + feature.properties.airline + "</h2><hr><h3>Distinatio:" + feature.properties.dst + "</h3>");
         },
-        color: "#FFFFCC",
+        color: "#ffffa1",
         weight: 2
     })
 
